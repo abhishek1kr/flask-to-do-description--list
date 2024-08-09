@@ -1,9 +1,12 @@
 from flask import Flask, render_template_string, request
 
 app = Flask(__name__)
+# open a file in append mode
+# if the file is empty then initialize listA and listB
 listA = []
 listB = []
-
+# if the file is not empty
+# load listA and listB from the file
 @app.route('/')
 def text_list():
     return render_template_string('''
@@ -149,6 +152,7 @@ def view():
     listA.append(text)
     text2 = request.form['userInput2']
     listB.append(text2)
+    # append lists in file
     strTemp = """
     <!doctype html>
     <html>
